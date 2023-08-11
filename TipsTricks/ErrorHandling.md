@@ -1,5 +1,5 @@
 ## Introduction
-Error handling is one of the most critical aspects of building reliable and robust PowerShell connectors for HelloID, yet it's often overlooked. If you're working with REST APIs in PowerShell, error handling becomes even more important but unfortunately, it also increases complexity.
+Error handling is one of the most critical aspects of building reliable and robust PowerShell code, yet it's often overlooked. If you're working with REST APIs in PowerShell, error handling becomes even more important but unfortunately, it also increases complexity.
 
 In this blog post, we'll explore the basics of error handling in PowerShell and provide some best practices for handling REST API errors. 
 
