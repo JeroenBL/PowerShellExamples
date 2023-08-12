@@ -3,46 +3,63 @@
 # Changes behavior of a function without modifying or extending it.
 
 function FlyingHighBehavior {
-    'high'
+    Write-Host 'Flying high'
 }
 
 function FlyingNormalBehavior {
-    'normal'
+    Write-Host 'Flying normal'
 }
 
 function QuackingLoudBehavior {
-    'loud'
+    Write-Host 'Quacking loud'
 }
 
 function SqueakBehavior {
-    'squeak'
+    Write-Host 'Squeak'
 }
 
 function New-Duck {
     param (
         [Parameter(Mandatory)]
         [string]
-        $Name,
+        $Type,
 
         [Parameter()]
         [scriptblock]
         $FlyBehavior,
 
-        [Parameter(Mandatory)]
+        [Parameter()]
         [scriptblock]
-        $QuackBehavior
+        $QuackBehavior,
+
+        [Parameter()]
+        [switch]
+        $Fly,
+
+        [Parameter()]
+        [switch]
+        $Quack
     )
-    $fly = $FlyBehavior.Invoke()
-    $quack = $QuackBehavior.Invoke()
-    
-    Write-Host "[$Name] flying: [$fly] and quacking: [$quack]"
+    Write-Host $Type
+    if ($Fly){  
+        Write-Host "$($FlyBehavior.Invoke())"
+    }
+
+    if ($Quack) {
+        Write-Host "$($QuackBehavior.Invoke())" 
+    }
 }
 
-New-Duck -Name 'Wild Duck' -FlyBehavior ${function:FlyingNormalBehavior} -QuackBehavior ${function:QuackingLoudBehavior}
-New-Duck -Name 'Mountain Duck' -FlyBehavior ${function:FlyingHighBehavior} -QuackBehavior ${function:QuackingLoudBehavior}
-New-Duck -Name 'Rubber Duck' -FlyBehavior {'does not fly'} -QuackBehavior ${function:SqueakBehavior}
+New-Duck -Type 'Wild Duck' -FlyBehavior ${function:FlyingNormalBehavior} -QuackBehavior ${function:QuackingLoudBehavior} -Fly -Quack
+New-Duck -Type 'Mountain Duck' -FlyBehavior ${function:FlyingHighBehavior} -QuackBehavior ${function:QuackingLoudBehavior} -Fly -Quack
+New-Duck -Type 'Rubber Duck' -FlyBehavior {} -QuackBehavior ${function:SqueakBehavior} -Quack
 
 # Output:
-# [Wild Duck] flying: [normal] and quacking: [loud]
-# [Mountain Duck] flying: [high] and quacking: [loud]
-# [Rubber Duck] flying: [does not fly] and quacking: [squeak]
+# Wild Duck
+# Flying normal
+# Quacking loud
+# Mountain Duck
+# Flying high
+# Quacking loud
+# Rubber Duck
+# Squeak
