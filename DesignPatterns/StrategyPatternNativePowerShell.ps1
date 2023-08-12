@@ -50,9 +50,16 @@ function New-Duck {
     }
 }
 
-New-Duck -Type 'Wild Duck' -FlyBehavior ${function:FlyingNormalBehavior} -QuackBehavior ${function:QuackingLoudBehavior} -Fly -Quack
-New-Duck -Type 'Mountain Duck' -FlyBehavior ${function:FlyingHighBehavior} -QuackBehavior ${function:QuackingLoudBehavior} -Fly -Quack
-New-Duck -Type 'Rubber Duck' -QuackBehavior ${function:SqueakBehavior} -Quack
+New-Duck -Type 'Wild Duck' -FlyBehavior ${function:FlyingNormalBehavior} `
+                           -QuackBehavior ${function:QuackingLoudBehavior} `
+                           -Fly -Quack
+                           
+New-Duck -Type 'Mountain Duck' -FlyBehavior ${function:FlyingHighBehavior} `
+                               -QuackBehavior ${function:QuackingLoudBehavior} `
+                               -Fly -Quack
+                               
+New-Duck -Type 'Rubber Duck' -QuackBehavior ${function:SqueakBehavior} `
+                             -Quack
 
 # Output:
 # Wild Duck
