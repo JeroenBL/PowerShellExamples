@@ -50,7 +50,7 @@ function New-Duck {
     }
 }
 
-splatNewWildDuckParams = @{
+$splatNewWildDuckParams = @{
     Type = 'Wild Duck' 
     FlyBehavior = ${function:FlyingNormalBehavior}
     QuackBehavior = ${function:QuackingLoudBehavior}
