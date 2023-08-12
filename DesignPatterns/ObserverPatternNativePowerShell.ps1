@@ -12,6 +12,7 @@ function Register-Observer {
 
 function Unregister-Observer {
     param(
+        [Parameter(Mandatory)]
         [string]
         $Name
     )
