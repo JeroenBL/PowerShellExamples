@@ -1,3 +1,7 @@
+# StrategyPattern.
+# Defines a family of algorithms encapsulating each one and making each interchangable.
+# Changes behavior of a function without modifying or extending it.
+
 function FlyingHighBehavior {
     'high'
 }
